@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   
+    <!--jQuery Scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- SOCIAL MEDIA CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>MTG Deck Builder</title>
+  </head>
+  <body>
+    <!--NAVIGATION BAR-->
+    <nav class="navbar navbar-expand-lg navbar fixed-top navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" href="http://18.206.85.48/lab-1-portfolio-aPeter1/index.html">Alec Petersen</a>
+      <h5>Magic the Gathering Deck Builder</h5>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <section class="main-container">
+      </article>
+        <article class="index-intro">
+              <div class="jumbotron jumbotron-fluid">
+                
+                <div class="container">
+                  <form class="needs-validation" novalidate>
+                    <h2>Create a Magic the Gathering Deck!</h2>
+                    <h5>Simply specify the color, format and number of cards in your deck and click "Generate Deck!"</h5>
+                    <br><br>
+                    <div class="form-row">
+                      <div class="col-md-2 mb-3">
+                        <label for="validationTooltip01">Colors</label>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck1">
+                          <label class="custom-control-label" for="customCheck1">Red</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck2">
+                          <label class="custom-control-label" for="customCheck2">Blue</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck3">
+                          <label class="custom-control-label" for="customCheck3">White</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck4">
+                          <label class="custom-control-label" for="customCheck4">Black</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck5">
+                          <label class="custom-control-label" for="customCheck5">Green</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck6">
+                          <label class="custom-control-label" for="customCheck6">No Color</label>
+                        </div>
+                        <br>
+                        <label for="validationTooltip02">Format</label>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck7">
+                          <label class="custom-control-label" for="customCheck7">Standard</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck8">
+                          <label class="custom-control-label" for="customCheck8">Modern</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheck9">
+                          <label class="custom-control-label" for="customCheck9">Legacy</label>
+                        </div>
+                        <br><br>
+                        <button type="button" class="btn btn-danger" id="generateButton">Generate Deck</button>
+                      </div>
+                
+                      <div class="col-md-2 mb3">
+                        <label for="validationTooltip02">Creatures</label>
+                        <input type="text" class="form-control" id="numCreatures" placeholder="(13)" value="13" required>
+                        <br>
+                        <label for="validationTooltip03">Instants</label>
+                        <input type="text" class="form-control" id="numInstants" placeholder="(15)" value="15" required>
+                        <br>
+                        <label for="validationTooltip04">Sorceries</label>
+                        <input type="text" class="form-control" id="numSorceries" placeholder="(10)" value="10" required>
+                        <br>
+                        
+                        
+                      </div>
+                      <div class="col-md-2 mb3">
+                        <label for="validationTooltip02">Enchantments</label>
+                        <input type="text" class="form-control" id="numEnchantments" placeholder="(13)" value="3" required>
+                        <br>
+                        <label for="validationTooltip03">Artifacts</label>
+                        <input type="text" class="form-control" id="numArtifacts" placeholder="(15)" value="2" required>
+                        <br>
+                        <label for="validationTooltip04">Planeswalkers</label>
+                        <input type="text" class="form-control" id="numPlaneswalkers" placeholder="(2)" value="2" required>
+                        <br><br><br><br>
+                        <label for="validationTooltip04">Lands</label>
+                        <input type="text" class="form-control" id="numLands" placeholder="Whatever's left" disabled>
+                        <br>
+                      </div>
+                      <div class="col-md-1 mb3"></div>
+                      <div class="col-md-5 mb3">
+                         <h4>What is Magic the Gathering?</h4>
+                        <p>Magic can be played by two or more players in various formats, which fall into two categories: constructed and limited. Limited formats involve players building a deck spontaneously out of a pool of random cards with a minimum deck size of 40 cards. In constructed, players create decks from cards they own, usually 60 cards with no more than 4 of any given card. Magic is played in person with printed cards, or using a deck of virtual cards through the Internet-based Magic: The Gathering Online, or on a smartphone or tablet, or through other programs.</p>
+
+                        <p>Each game represents a battle between wizards known as "planeswalkers", who employ spells, artifacts, and creatures depicted on individual Magic cards to defeat their opponents. Although the original concept of the game drew heavily from the motifs of traditional fantasy role-playing games such as Dungeons & Dragons, the gameplay of Magic bears little similarity to pencil-and-paper adventure games, while having substantially more cards and more complex rules than many other card games.</p>
+
+
+                        </div>
+                    </div>
+                  </form>
+                  <div class="row">
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="cardContainer" id="cardContainer">
+                  <!--Javascript will insert the HTML for the cards here.-->
+              </div>              
+        </article>
+      </section>  
+    
+    <script src="script.js"></script>
+    <script>
+
+    
+    
+    $("#generateButton").click(function(e){
+      
+      //Generates HTML that will hold card information
+      var htmlContainer = "<div class=\"container\">";
+      var cardID;
+      var cardImageID;
+
+      var cardCount = 0;
+      for(var j = 0; j < 1; ++j){
+        htmlContainer += "<div class=\"row\">";
+        for(var i = 0; i < 60; ++i){
+          cardCount += 1;
+          //Create Card and Assign cardsID
+          cardID = "card" + cardCount.toString();
+          htmlContainer += "<div class=\"col-sm-2\" id=\"" + cardID + "\"><div class=\"card\" style=\"width: 18rem;\">";
+          //Card Image
+          cardImageID = cardID + "Image";
+          htmlContainer += "<img class=\"card-img-top\" id=\"" + cardImageID + "\" src=\"...\" alt=\"Card image cap\"></div></div>";
+        }
+        htmlContainer += "</div>";
+      }
+      htmlContainer += "</div>";
+      $("#cardContainer").html(htmlContainer);
+      
+      var APIUrl = "https://api.magicthegathering.io/v1/cards?";
+      var Colors = [];
+      var Identities = [];
+      var numColors = 0;
+      if(document.getElementById("customCheck1").checked){
+        Colors[numColors] = "red";
+        Identities[numColors] = "R";
+        numColors++;
+      }
+      if(document.getElementById("customCheck2").checked){
+        Colors[numColors] = "blue";
+        Identities[numColors] = "U";
+        numColors++;
+      }
+      if(document.getElementById("customCheck3").checked){
+        Colors[numColors] = "white";
+        Identities[numColors] = "W";
+        numColors++;
+      }
+      if(document.getElementById("customCheck4").checked){
+        Colors[numColors] = "black";
+        Identities[numColors] = "B";
+        numColors++;
+      }
+      if(document.getElementById("customCheck5").checked){
+        Colors[numColors] = "green";
+        Identities[numColors] = "G";
+        numColors++;
+      }
+      if(document.getElementById("customCheck6").checked){
+        Colors[numColors] = "colorless";
+        Identities[numColors] = "C";
+        numColors++;
+      }
+      var format;
+      if(document.getElementById("customCheck7").checked){
+        format = "standard";
+      }
+      else if(document.getElementById("customCheck7").checked){
+        format = "modern";
+      }
+      else if(document.getElementById("customCheck7").checked){
+        format = "legacy";
+      }
+      else{
+        format = "modern";
+      }
+      
+      var numInstants = $("#numInstants").val();
+      var numSorceries = $("#numSorceries").val();
+      var numPlaneswalkers = $("#numPlaneswalkers").val();
+      var numCreatures = $("#numCreatures").val();
+      var numArtifacts = $("#numArtifacts").val();
+      var numEnchantments = $("#numEnchantments").val();
+      var numLands = 60-numInstants-numSorceries-numPlaneswalkers-numCreatures-numArtifacts-numEnchantments;
+      document.getElementById("numLands").value = numLands;
+      var imageURL;
+      var usedCards = 1;
+      var cardName;
+      var giColors;
+      var numCardsGiven;
+      
+      for(i = 0; i < numColors; ++i){
+        var APIUrlPlaneswalkers = APIUrl + "gameFormat=" + format + "&types=planeswalker&contains=imageUrl&colorIdentity=" + Identities[i];
+        $.ajax({
+        url : APIUrlPlaneswalkers,
+        dataType : "json",
+        success : function(data){
+          var randomIndex = 0;
+          for(j = 0; j < Math.ceil(numPlaneswalkers/numColors); ++j){
+            if(j < numPlaneswalkers){
+              numCardsGiven = data['cards'].length;
+              randomIndex = Math.floor((Math.random() * numCardsGiven));
+              imageURL = data['cards'][randomIndex]['imageUrl'];
+              cardName = "card" + usedCards.toString() + "Image";
+              document.getElementById(cardName).src = imageURL;
+              usedCards ++;  
+
+              
+            }
+          }
+        }
+        });
+      }
+      for(i = 0; i < numColors; ++i){
+        var APIUrlCreatures = APIUrl + "gameFormat=" + format + "&types=creature&contains=imageUrl&colorIdentity=" + Identities[i];
+        $.ajax({
+        url : APIUrlCreatures,
+        dataType : "json",
+        success : function(data){
+          var randomIndex = 0;
+          numCardsGiven = data['cards'].length;
+          for(j = 0; j < Math.ceil(numCreatures/numColors); ++j){
+            if(j <= numCreatures ){
+              randomIndex = Math.floor((Math.random() * numCardsGiven));
+              imageURL = data['cards'][randomIndex]['imageUrl'];
+              cardName = "card" + usedCards.toString() + "Image";
+              document.getElementById(cardName).src = imageURL;
+              usedCards ++;  
+            }
+          }
+        }
+        });
+      }
+      for(i = 0; i < numColors; ++i){
+        var APIUrlInstants = APIUrl + "gameFormat=" + format + "&types=instant&contains=imageUrl&colorIdentity=" + Identities[i];
+        $.ajax({
+        url : APIUrlInstants,
+        dataType : "json",
+        success : function(data){
+          var randomIndex = 0;
+          numCardsGiven = data['cards'].length;
+          for(j = 0; j < Math.ceil(numInstants/numColors); ++j){
+            if(j <= numInstants){
+              randomIndex = Math.floor((Math.random() * numCardsGiven));
+              imageURL = data['cards'][randomIndex]['imageUrl'];
+              cardName = "card" + usedCards.toString() + "Image";
+              document.getElementById(cardName).src = imageURL;
+              usedCards ++;  
+            }
+          }
+        }
+        });
+      }
+      for(i = 0; i < numColors; ++i){
+        var APIUrlSorceries = APIUrl + "gameFormat=" + format + "&types=sorcery&contains=imageUrl&colorIdentity=" + Identities[i];
+        $.ajax({
+        url : APIUrlSorceries,
+        dataType : "json",
+        success : function(data){
+          var randomIndex = 0;
+          numCardsGiven = data['cards'].length;
+          for(j = 0; j < Math.ceil(numSorceries/numColors); ++j){
+            if(j <= numSorceries){
+              randomIndex = Math.floor((Math.random() * numCardsGiven));
+              imageURL = data['cards'][randomIndex]['imageUrl'];
+              cardName = "card" + usedCards.toString() + "Image";
+              document.getElementById(cardName).src = imageURL;
+              usedCards ++;  
+            }
+          }
+        }
+        });
+      }
+      for(i = 0; i < numColors; ++i){
+        var APIUrlEnchantments = APIUrl + "gameFormat=" + format + "&types=enchantment&contains=imageUrl&colorIdentity=" + Identities[i];
+        $.ajax({
+        url : APIUrlEnchantments,
+        dataType : "json",
+        success : function(data){
+          var randomIndex = 0;
+          numCardsGiven = data['cards'].length;
+          for(j = 0; j < Math.ceil(numEnchantments/numColors); ++j){
+            if(j <= numEnchantments){
+              randomIndex = Math.floor((Math.random() * numCardsGiven));
+              imageURL = data['cards'][randomIndex]['imageUrl'];
+              cardName = "card" + usedCards.toString() + "Image";
+              document.getElementById(cardName).src = imageURL;
+              usedCards ++;  
+            }
+          }
+        }
+        });
+      }
+      
+      var APIUrlArtifacts = APIUrl + "gameFormat=" + format + "&types=artifact&contains=imageUrl";
+      $.ajax({
+      url : APIUrlArtifacts,
+      dataType : "json",
+      success : function(data){
+        var randomIndex = 0;
+        numCardsGiven = data['cards'].length;
+        for(j = 0; j < numArtifacts; ++j){
+          if(j <= numArtifacts){
+            randomIndex = Math.floor((Math.random() * numCardsGiven));
+            imageURL = data['cards'][randomIndex]['imageUrl'];
+            cardName = "card" + usedCards.toString() + "Image";
+            document.getElementById(cardName).src = imageURL;
+            usedCards ++;  
+          }
+        }
+      }
+      });
+      
+      for(i = 0; i < numColors; ++i){
+        var APIUrlLand = APIUrl + "gameFormat=" + format + "&types=land&contains=imageUrl&colorIdentity=" + Identities[i];
+        $.ajax({
+        url : APIUrlLand,
+        dataType : "json",
+        success : function(data){
+          var randomIndex = 0;
+          numCardsGiven = data['cards'].length;
+          for(j = 0; j < Math.ceil(numLands/numColors); ++j){
+            if(j <= numLands){
+              randomIndex = Math.floor((Math.random() * numCardsGiven));
+              imageURL = data['cards'][randomIndex]['imageUrl'];
+              cardName = "card" + usedCards.toString() + "Image";
+              document.getElementById(cardName).src = imageURL;
+              usedCards ++;  
+            }
+          }
+        }
+        });
+      }
+    });
+    
+    </script>
+    
+    <!-- Bootstrap Script Links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
